@@ -32,10 +32,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         if (response.success && response.user) {
           setUser(response.user);
-          // Si la cookie tiene sesión válida, guardar el token en localStorage también
-          if (response.token) {
-            localStorage.setItem('token', response.token);
-          }
         } else {
           // Token inválido: limpiarlo para no hacer requests muertos en el futuro
           localStorage.removeItem('token');
